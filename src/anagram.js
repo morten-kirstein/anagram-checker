@@ -1,16 +1,18 @@
 
 const wordOne = 'Silent';
-const wordTwo = 'listeN';
+const wordTwo = 'liste';
 
-let isAnagram = null;
-
-isAnagram = anagram(wordOne, wordTwo) /*?+*/
-
+const isAnagram = anagram(wordOne, wordTwo) /*?+*/
 
 function anagram(wordOne, wordTwo) {
 
     //Check om ord har samme længde
     const isSameLength = isWordsSameLength(wordOne, wordTwo) /*?+*/
+    const notSameLength = isSameLength === false;
+
+    if (notSameLength) {
+        return false;
+    }
 
     //Lowercase Words
     const lowerCasedWordOne = setWordToLowercase(wordOne); /*?+*/
@@ -30,13 +32,7 @@ function anagram(wordOne, wordTwo) {
 
     // validere at wordOne er === WordTwo
     const isWordsSame = compareWords(sortedWordOneString, sortedWordTwoString) /*?+*/
-
-    if (isWordsSame) {
-        return true;
-    } else {
-        return false;
-        console.log('du stinker');
-    }
+    return isWordsSame ? true : false;
 
 }
 
@@ -72,10 +68,3 @@ function sortWordArray(wordArray) {
     const sortArray = [...wordArray];
     return sortArray.sort(); /*?+*/
 }
-
-
-
-//retunere true hvis alle bogstaver kan formes til det andet ord
-
-
-//listen silent
