@@ -1,9 +1,9 @@
 export default class Utils {
 
     public compareWords(wordOne: string, wordTwo: string): boolean {
-
         return wordOne === wordTwo;
     }
+
 
     public isWordsSameLength(wordOne: any, wordTwo: any): boolean {
         const wordOneLength = wordOne.length;
@@ -23,15 +23,13 @@ export default class Utils {
     }
 
 
-    public setWordToLowercase(word: string): string {
-        const lowerCasedWord = word.toLowerCase();
-        return lowerCasedWord;
+    public lowercaseWord(word: string): string {
+        return word.toLowerCase();
     }
 
 
     public sortWordArray(wordArray: string[]): string[] {
-        const sortArray = [...wordArray];
-        return sortArray.sort();
+        return wordArray.sort();
     }
 }
 

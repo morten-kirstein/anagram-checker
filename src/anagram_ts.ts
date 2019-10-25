@@ -2,15 +2,13 @@ import Utils from "./utils";
 
 export default class AnagramChecker {
 
-    constructor(private utils = new Utils()) {
-
-    }
+    constructor(private utils = new Utils()) { }
 
     checkWordsForAnagram(wordOne: string, wordTwo: string) {
 
         //Lowercase Words
-        const lowerCasedWordOne = this.utils.setWordToLowercase(wordOne); /*?+*/
-        const lowerCasedWordTwo = this.utils.setWordToLowercase(wordTwo); /*?+*/
+        const lowerCasedWordOne = this.utils.lowercaseWord(wordOne); /*?+*/
+        const lowerCasedWordTwo = this.utils.lowercaseWord(wordTwo); /*?+*/
 
         //Split words into array
         const splittedWordOne = this.utils.splitWordIntoArray(lowerCasedWordOne);
