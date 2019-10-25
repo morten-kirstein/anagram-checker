@@ -1,7 +1,7 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts"/>
 
 import Utils from "../src/utils";
-import AnagramChecker from "../src/anagram_ts";
+import AnagramChecker from "../src/anagram";
 
 
 describe('AnagramChecker', () => {
@@ -15,7 +15,7 @@ describe('AnagramChecker', () => {
             const wordOne = 'ole';
             const wordTwo = 'ole';
 
-            const result = utils.compareWords(wordOne, wordTwo);
+            const result = utils.compareWords({ wordOne, wordTwo });
             expect(result).toBe(true);
 
         });
@@ -70,7 +70,7 @@ describe('AnagramChecker', () => {
                 const wordOne = 'ole';
                 const wordTwo = 'ole';
 
-                const result = utils.isWordsSameLength(wordOne, wordTwo);
+                const result = utils.isWordsSameLength({ wordOne, wordTwo });
                 expect(result).toBe(true);
             });
 
@@ -79,7 +79,7 @@ describe('AnagramChecker', () => {
                 const wordOne = 'ole';
                 const wordTwo = 'oleole';
 
-                const result = utils.isWordsSameLength(wordOne, wordTwo);
+                const result = utils.isWordsSameLength({ wordOne, wordTwo });
                 expect(result).toBe(false);
             });
         });
@@ -95,7 +95,7 @@ describe('AnagramChecker', () => {
             const wordOne = 'ole';
             const wordTwo = 'leo';
 
-            const result = anagramChecker.checkWordsForAnagram(wordOne, wordTwo);
+            const result = anagramChecker.checkWordsForAnagram({ wordOne, wordTwo });
             expect(result).toBe(true);
 
         });
@@ -105,7 +105,7 @@ describe('AnagramChecker', () => {
             const wordOne = 'sielent';
             const wordTwo = 'listen';
 
-            const result = anagramChecker.checkWordsForAnagram(wordOne, wordTwo)
+            const result = anagramChecker.checkWordsForAnagram({ wordOne, wordTwo })
             expect(result).toBe(false);
 
         });
@@ -115,7 +115,7 @@ describe('AnagramChecker', () => {
             const wordOne = 'silent';
             const wordTwo = 'listen';
 
-            const result = anagramChecker.isAnagram(wordOne, wordTwo)
+            const result = anagramChecker.isAnagram({ wordOne, wordTwo })
             expect(result).toBe(true);
         });
 
@@ -123,7 +123,7 @@ describe('AnagramChecker', () => {
             const wordOne = 'silent';
             const wordTwo = 'listenn';
 
-            const result = anagramChecker.isAnagram(wordOne, wordTwo)
+            const result = anagramChecker.isAnagram({ wordOne, wordTwo })
             expect(result).toBe(false);
         });
 
@@ -134,7 +134,7 @@ describe('AnagramChecker', () => {
             const wordTwo = 'leo';
 
             spyOn(anagramChecker, 'checkWordsForAnagram');
-            anagramChecker.isAnagram(wordOne, wordTwo)
+            anagramChecker.isAnagram({ wordOne, wordTwo })
 
             expect(anagramChecker.checkWordsForAnagram).toHaveBeenCalled()
         });

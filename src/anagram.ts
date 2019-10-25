@@ -1,10 +1,11 @@
 import Utils from "./utils";
+import Words from "./words.interface";
 
 export default class AnagramChecker {
 
     constructor(private utils = new Utils()) { }
 
-    checkWordsForAnagram(wordOne: string, wordTwo: string) {
+    checkWordsForAnagram({ wordOne, wordTwo }: Words): boolean {
 
         //Lowercase Words
         const lowerCasedWordOne = this.utils.lowercaseWord(wordOne); /*?+*/
@@ -23,16 +24,17 @@ export default class AnagramChecker {
         const sortedWordTwoString = this.utils.arrayToString(sortedWordTwo); /*?+*/
 
         //Validate that the words are the identical
-        const isWordsSame = this.utils.compareWords(sortedWordOneString, sortedWordTwoString) /*?+*/
+        const words: Words = { wordOne: sortedWordOneString, wordTwo: sortedWordTwoString };
+        const isWordsSame = this.utils.compareWords(words) /*?+*/
         return isWordsSame;
     }
 
-    isAnagram(wordOne: string, wordTwo: string): boolean {
+    isAnagram({ wordOne, wordTwo }: Words): boolean {
 
         //Check if words are same length
-        const sameLength = this.utils.isWordsSameLength(wordOne, wordTwo) /*?+*/
+        const sameLength = this.utils.isWordsSameLength({ wordOne, wordTwo }) /*?+*/
         const notSameLength = sameLength === false;
 
-        return notSameLength ? false : this.checkWordsForAnagram(wordOne, wordTwo);
+        return notSameLength ? false : this.checkWordsForAnagram({ wordOne, wordTwo });
     }
 }

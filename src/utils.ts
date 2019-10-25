@@ -1,11 +1,17 @@
+import Words from "./words.interface";
+
 export default class Utils {
 
-    public compareWords(wordOne: string, wordTwo: string): boolean {
+    public compareWords(words: Words): boolean {
+        const { wordOne, wordTwo } = words
         return wordOne === wordTwo;
     }
 
 
-    public isWordsSameLength(wordOne: any, wordTwo: any): boolean {
+    public isWordsSameLength(words: Words): boolean {
+
+        const { wordOne, wordTwo } = words;
+
         const wordOneLength = wordOne.length;
         const wordTwoLength = wordTwo.length;
 
@@ -32,4 +38,6 @@ export default class Utils {
         return wordArray.sort();
     }
 }
+
+
 
