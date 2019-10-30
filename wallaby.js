@@ -7,6 +7,7 @@ module.exports = function () {
         tests: [
             'test/**/*Spec.ts'
         ],
+        testFramework: 'jasmine',
         env: {
             type: 'node'
         }
